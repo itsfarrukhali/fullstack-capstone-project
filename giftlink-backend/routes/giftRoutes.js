@@ -25,28 +25,28 @@ router.get('/', async (_req, res, next) => {logger.info("/called");
 
 router.get('/:id', async (req, res, next) => {
     try {
+        const id = req.params.id;
+        
         // Task 1: Connect to MongoDB and store connection to db constant
         const db = await connectToDatabase();
-
-        // Task 2: use the collection() method to retrieve the gift collection
+        
+        // Task 2: Use the collection() method to retrieve the gift collection
         const collection = db.collection("gifts");
-
-        const id = req.params.id;
-
-        // Task 3: Find a specific gift by ID using the collection.fineOne method and store in constant called gift
-        const gift = await collection.find({id: id})
-
+        
+        // Task 3: Find a specific gift by ID using collection.findOne method
+        const gift = await collection.findOne({ id: id });
+        
         if (!gift) {
-            return res.status(404).send('Gift not found');
+            return res.status(404).json({ message: 'Gift not found' });
         }
-
+        
         res.json(gift);
     } catch (e) {
-        next(e)
-        console.error('Error fetching gift:', e);
-        res.status(500).send('Error fetching gift');
+        next(e);
     }
 });
+
+module.exports = router;
 
 
 
