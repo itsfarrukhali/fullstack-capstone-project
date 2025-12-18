@@ -1,6 +1,8 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import MainPage from './components/MainPage/MainPage';
+import SearchPage from './components/SearchPage/SearchPage';
+import DetailsPage from './components/DetailsPage/DetailsPage';
 import RegisterPage from './components/RegisterPage/RegisterPage';
 import LoginPage from './components/LoginPage/LoginPage';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -16,6 +18,8 @@ function App() {
         {/* Main Page Routes */}
         <Route path="/" element={<MainPage />} />
         <Route path="/app" element={<MainPage />} />
+        <Route path="/app/product/:productId" element={<DetailsPage/>} />
+        <Route path="/app/search" element={<SearchPage/>} />
         
         {/* Register and Login Routes */}
         <Route path="/app/register" element={<RegisterPage />} />
