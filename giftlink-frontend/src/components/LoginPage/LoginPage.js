@@ -1,3 +1,4 @@
+/*jshint esversion: 8 */
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom'; // Task 3
 import { urlConfig } from '../../config'; // Task 1
