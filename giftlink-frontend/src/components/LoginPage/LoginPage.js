@@ -20,10 +20,10 @@ function LoginPage() {
 
     // Task 6: If the bearerToken has a value (user already logged in), navigate to MainPage
     useEffect(() => {
-        if (sessionStorage.getItem('auth-token')) {
+        if (bearerToken) {
             navigate('/app');
         }
-    }, [navigate]);
+    }, [bearerToken, navigate]);
 
     // Handle Login function with API call
     const handleLogin = async () => {
