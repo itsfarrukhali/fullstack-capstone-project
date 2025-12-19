@@ -17,9 +17,9 @@ router.get('/', async (_req, res, next) => {logger.info("/called");
         const gifts = await collection.find({}).toArray();
 
         // Task 4: return the gifts using the res.json method
-        res.json(gifts)
+        res.json(gifts);
     } catch (e) {
-        logger.console.error('oops something went wrong', e)
+        logger.console.error('oops something went wrong', e);
         next(e);
     }
 });
